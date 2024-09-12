@@ -1,0 +1,1 @@
+<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" class="map" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Av.%20Paran%C3%A1%20Curitiba+(Meu%20mapa)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
