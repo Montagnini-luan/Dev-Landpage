@@ -1,1 +1,32 @@
-<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" class="map" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Av.%20Paran%C3%A1%20Curitiba+(Meu%20mapa)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+window.onload = function(){
+
+    async function initMap() {
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+        const map = new Map(document.getElementById("map"), {
+        center: { lat: -25.426898, lng: -49.265198 },
+        zoom: 14,
+        mapId: "4504f8b37365c3d0",
+        });
+        
+        const draggableMarker = new AdvancedMarkerElement({
+        map,
+        position: { lat: -25.426898, lng: -49.265198 },
+        gmpDraggable: true,
+        title: "This marker is draggable. Click to remove.",
+        });
+        
+        draggableMarker.addListener("click", (event) => {
+        // Remove AdvancedMarkerElement from Map
+        draggableMarker.map = null;
+        });
+        map.addListener("click", (event) => {
+        // Set AdvancedMarkerView position and add to Map
+        draggableMarker.position = event.latLng;
+        draggableMarker.map = map;
+        });
+        }
+        
+        initMap();
+
+}

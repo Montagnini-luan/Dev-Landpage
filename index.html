@@ -6,8 +6,7 @@
     <title>Projeto-3</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-    <script src='main.js'></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script type="module" src='js/main.js'></script>
 </head>
 <body>
     <header>
@@ -122,7 +121,7 @@
         <h2>Faça uma visita</h2>
             <div class="map-wraper3">
             <div class="map-wraper2">
-                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" class="map" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Av.%20Paran%C3%A1%20Curitiba+(Meu%20mapa)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='http://maps-generator.com/pt'>Maps-Generator.com/PT</a> 
+                <div class="map" id="map"></div>
             </div><!--map-wraper2-->
             </div><!--map-wraper-3-->
         </div><!--map-wraper-->
@@ -138,6 +137,36 @@
             <div class="clear"></div>
         </div><!--container-->
     </footer>
+
+    <script>
+        (g => {
+        var h, a, k, p = "The Google Maps JavaScript API",
+        c = "google",
+        l = "importLibrary",
+        q = "__ib__",
+        m = document,
+        b = window;
+        b = b[c] || (b[c] = {});
+        var d = b.maps || (b.maps = {}),
+        r = new Set,
+        e = new URLSearchParams,
+        u = () => h || (h = new Promise(async (f, n) => {
+        await (a = m.createElement("script"));
+        e.set("libraries", [...r] + "");
+        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+        e.set("callback", c + ".maps." + q);
+        a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+        d[q] = f;
+        a.onerror = () => h = n(Error(p + " could not load."));
+        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+        m.head.append(a)
+        }));
+        d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+        })({
+        key: "AIzaSyDHPNQxozOzQSZ-djvWGOBUsHkBUoT_qH4",
+        v: "weekly",
+        });
+        </script>
     
 </body>
 </html>
